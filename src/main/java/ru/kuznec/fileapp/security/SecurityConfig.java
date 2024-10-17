@@ -40,6 +40,7 @@ public class SecurityConfig {
                 .csrf(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers("/api/auth/**").permitAll()
+                        .requestMatchers("/api/swagger-ui/**", "/api/api-docs/**").permitAll()
                         .requestMatchers("/api/files/download/**").permitAll()
                         .requestMatchers("/api/files/upload").authenticated()
                         .requestMatchers("/api/admin/**").hasRole("ADMIN")
